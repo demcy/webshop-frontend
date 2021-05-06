@@ -1,0 +1,21 @@
+.navbar {
+    background-color: orange;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 60px;
+    cursor: pointer;
+}
+
+.cart-button {
+    background-color: peru;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.cart-button:hover {
+    color: white;
+}
