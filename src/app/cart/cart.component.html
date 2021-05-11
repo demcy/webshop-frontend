@@ -1,1 +1,13 @@
-<p>cart works!</p>
+<button *ngIf="cartItems.length > 0;else emptyCartMessage" class="btn btn-primary" (click)="onEmptyCart()">Tühjenda ostukorv</button>
+<ng-template #emptyCartMessage>
+    <div>Ostukorv on tuhi</div>
+    <br><br><br>
+</ng-template>
+<div *ngFor="let cartItem of cartItems; let i = index">
+    <img src="{{ cartItem.image }}" class="item-image">
+    <div class="item-title">{{ cartItem.name }}</div>
+    <div class="item-price">{{ cartItem.price }}</div>
+    <button class="btn btn-primary" (click)="onRemoveFromCart(i)">X</button>
+</div>
+
+<div>KOKKU: {{ sumOfCart }}$</div>
