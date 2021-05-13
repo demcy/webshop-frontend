@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-item-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemListComponent implements OnInit {
 
-  constructor() { }
+  items: {image: string, name:string, price:number, category:string}[] = [];
+  
+  constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
+    this.items = this.itemService.getItems();
+  }
+
+  onRemoveFromCart(index: number) {
+    this.itemService.removeItem(index);
   }
 
 }

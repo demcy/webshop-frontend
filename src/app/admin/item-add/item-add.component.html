@@ -9,5 +9,5 @@
     <input type="url" ngModel name="image" placeholder="Sisesta url" required><br>
     <label>KATEGOORIA</label><br>
     <input type="text" ngModel name="category" placeholder="Sisesta kategooria" pattern="^[a-zA-Z]+$" required><br>
-    <button [disabled]="addItemForm.invalid">SISESTA</button>
+    <button type="submit" [disabled]="addItemForm.invalid">SISESTA</button>
 </form>

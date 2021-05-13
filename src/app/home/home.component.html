@@ -1,6 +1,6 @@
 <div class="items-wrapper">
-    <div class="item" *ngFor="let item of items">
-        <img src="{{item.image}}" class="item-image">
+    <div class="item" *ngFor="let item of items; let i = index">
+        <img src="{{item.image}}" class="item-image" routerLink="toode/{{i}}">
         <div class="item-title">{{ item.name }}</div>
         <div class="item-price">{{ item.price }}</div>
         <button class="btn btn-primary" (click)="onAddToCart(item)">LISA OSTUKORVI</button>
