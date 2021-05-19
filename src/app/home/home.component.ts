@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartComponent } from '../cart/cart.component';
 import { CartService } from '../cart/cart.service';
+import { Item } from '../models/item';
 import { ItemService } from '../services/item.service';
 
 @Component({
@@ -10,18 +11,19 @@ import { ItemService } from '../services/item.service';
 })
 export class HomeComponent implements OnInit {
   // items: any[] = [];
-  items: {image: string, name:string, price:number, category:string}[] = [];
+  items: Item[] = [];
+  kuupaev = new Date();
 
   constructor(private cartService: CartService, 
     private itemService: ItemService) {
    }
 
   ngOnInit(): void {
-    console.log("Home component");
+    //console.log("Home component");
     this.items = this.itemService.getItems();
   }
 
-  onAddToCart(item: {image: string, name:string, price:number, category:string}) {
+  onAddToCart(item: Item) {
     this.cartService.addToCart(item);
   }
 }

@@ -10,4 +10,4 @@
     <button class="btn btn-primary" (click)="onRemoveFromCart(i)">X</button>
 </div>
 
-<div>KOKKU: {{ sumOfCart }}$</div>
+<div>KOKKU: {{ sumOfCart | itemPrice }}</div>

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Item } from '../models/item';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  private items = [
+  private items: Item[] = [
     {
         image: 'https://arvutitark.ee/prodpics/563/563471/thumb200/4146257.jpg',
         name: 'Veebikaamera Razer Kiyo Pro',
@@ -46,15 +48,19 @@ export class ItemService {
 
   constructor() { }
 
-  addItem(item: {image: string, name:string, price:number, category:string}) {
+  addItem(item: Item): void {
     this.items.push(item);
   }
 
-  removeItem(index: number) {
+  editItem(item: Item, id: number): void {
+    this.items[id] = item;
+  }
+
+  removeItem(index: number): void {
     this.items.splice(index, 1);
   }
 
-  getItems() {
+  getItems(): Item[] {
     return this.items;
   }
 }

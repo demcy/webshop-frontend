@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Item } from 'src/app/models/item';
 import { ItemService } from 'src/app/services/item.service';
 
 @Component({
@@ -17,7 +18,12 @@ export class ItemAddComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log(form);
     if(form.valid) {
-      this.itemService.addItem(form.value);
+      this.itemService.addItem(new Item(
+        form.value.name,
+        form.value.price,
+        form.value.image,
+        form.value.category,
+      ));
       form.reset();
     }
   }
